@@ -38,8 +38,8 @@ Parameters
      -
    * - additional_linktracking_parameters
      - string
-     - The additional url parameters that will be added to the url of the tracked links when redirected.
-     - Only works if the this feature is enabled for the customer.
+     - Additional url parameters that are added to the tracked links url when redirected.
+     - Only works if the feature is enabled for the customer.
 
 Result Example
 --------------
@@ -86,7 +86,7 @@ Where:
 * *email_category* = The category identifier for this email, for more info see :doc:`../emails/email_categories`.
 * *filter* = The filter identifier. Available filters can be retrieved via :doc:`../contacts/segment_list`.
 * *contactlist* = The contact list identifier. Contact lists can be retrieved via :doc:`../contacts/contact_list_list`.
-* *cc_list* = The contact list ID, if the email is sent, this contact list also receives it. Only works if BCC List is enabled.
+* *cc_list* = The ID of the contact list which will receive a copy of the email when sent. Only works if BCC List is enabled.
 * *status* = The status of the email, for more info see :doc:`../appendices/email_status`.
 * *api_status* = The launch status of the email, for more info see :doc:`../appendices/launch_status`.
 * *api_error* = Any specific errors related to the endpoints or methods, for more info see :doc:`../appendices/error_codes`.
