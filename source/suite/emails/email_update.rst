@@ -39,7 +39,7 @@ Parameters
    * - language
      - string
      - Language of the email campaign
-     - Examples are 'en' or 'de'.
+     - Has to be expressed using the correct ISO code, e.g. 'en', 'de', etc.
    * - subject
      - string
      - Subject of the email campaign
@@ -51,11 +51,11 @@ Parameters
    * - text_source
      - string
      - Text source of a custom HTML campaign
-     - Only works if the campaign is not template-based.
+     - Only works for custom HTML campaigns.
    * - html_source
      - string
      - Html source of a custom HTML campaign
-     - Only works if the campaign is not template-based.
+     - Only works for custom HTML campaigns.
 
 Request Example
 ---------------
@@ -154,7 +154,7 @@ Errors
      - 6036
      - Additional tracking parameters are not enabled.
      - If the "Enable additional campaign specific tracking params" feature is not enabled, then
-       additional_linktracking_parameters cannot be set. Ask for this feature from your Account Manager.
+       additional_linktracking_parameters cannot be set. Please contact Emarsys support to find out more about this feature.
    * - 400
      - 6039
      - Campaign language is invalid
