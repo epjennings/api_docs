@@ -51,11 +51,11 @@ Parameters
    * - text_source
      - string
      - Text source of a custom HTML campaign
-     - Only works if the campaign is not template-based.
+     - Does not work for template-based campaigns.
    * - html_source
      - string
      - Html source of a custom HTML campaign
-     - Only works if the campaign is not template-based.
+     - Does not work for template-based campaigns.
 
 Request Example
 ---------------
