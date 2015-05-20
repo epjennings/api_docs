@@ -1,20 +1,20 @@
 Unsubscribing a Contact from an Email Campaign
 ==============================================
 
-Marks a contact unsubscribed for an email campaign launch so it will be counted in the campaign statistics. It affects
-the response summary (:doc:`launch_response_summary`) and :doc:`../../suite/exports/export_responses`, and
-makes segmentation based on unsubscribtion possible.
+Marks a contact as *unsubscribed* for an email campaign launch so that they will be counted in the campaign statistics. It affects
+both the response summary (:doc:`launch_response_summary`) and :doc:`../../suite/exports/export_responses`, and also
+enables segmentation based on unsubscription.
 
-It **does not change** the opt-in status of the contact, this must be done with an additional API request
+It **does not change** the opt-in status of the contact; this must be done separately using an additional API request
 (:doc:`../../suite/contacts/contact_update`) if necessary.
 
-.. note:: It is useful if you aim at:
+.. note:: This endpoint is useful if you:
 
-          * sending email campaigns with unsubscribe links which target your own website
-          * unsubscribing the user by updating specific fields in his user profile (e.g. a newsletter flag)
-          * counting the unsubscription for the statistics of the specific campaign, not from all campaigns
+          * send email campaigns with unsubscribe links to your own website
+          * define the user as unsubscribed by updating specific fields in their user profile (e.g. a newsletter flag)
+          * generate unsubscribe statistics of specific campaigns (i.e. not from all campaigns)
 
-Unsubscribe link must contain parameters $cid$, $llid$ and $uid$. For the list of possible campaign related
+The unsubscribe link must contain parameters $cid$, $llid$ and $uid$. For the list of possible campaign related
 placeholders, see :doc:`../appendices/placeholders`.
 
 Endpoint
@@ -47,8 +47,9 @@ Parameters
      - Identifies a contact, a randomly generated string.
      -
 
-Where to get these IDs from: In your campaign, create a new link which points to the unsubscription page of your
-website. You can use $cid$ and $llid$. $cid$ will be replaced with the email_id and $llid$ will be replaced with the
+*To find these IDs:*
+Create a new link which points to the unsubscription page of your website in your campaign. 
+You can use $cid$ and $llid$. $cid$ will be replaced with the email_id and $llid$ will be replaced with the
 launch_list_id. Please make sure that you track the link in Emarsys suite.
 Example: `http://yourwebsite.com/unsubscribe.html?email_id=$cid$&launchlist_id=$llid$`
 
