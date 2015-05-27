@@ -1,24 +1,25 @@
 Unsubscribing a Contact from an Email Campaign
 ==============================================
 
-Marks a contact unsubscribed for an email campaign launch so it will be counted in the campaign statistics. It affects
-the response summary (:doc:`launch_response_summary`) and :doc:`../../suite/exports/export_responses`, and
-makes segmentation based on unsubscribtion possible.
+Flags a contact as unsubscribed for an email campaign launch so they will included in the campaign statistics. It affects
+the response summary (:doc:`launch_response_summary`) and :doc:`../../suite/exports/export_responses`, as well as making
+segmentation based on unsubscription possible.
 
-It **does not change** the opt-in status of the contact, this must be done with an additional API request
+Unsubscribing the contact from an email campaign **does not change** the opt-in status of the contact. Opt-in changes must be performed using an additional API request
 (:doc:`../../suite/contacts/contact_update`) if necessary.
 
-.. note:: It is useful if you aim at:
+.. note:: This endpoint is useful if you intend to:
 
-          * sending email campaigns with unsubscribe links which target your own website
-          * unsubscribing the user by updating specific fields in his user profile (e.g. a newsletter flag)
-          * counting the unsubscription for the statistics of the specific campaign, not from all campaigns
+          * send email campaigns with unsubscribe links which target your own website
+          * unsubscribe a contact by updating specific fields in their user profile (e.g. a newsletter flag)
+          * count the unsubscription statistics of a specific campaign (not from all campaigns)
 
 In your campaign body, create a new link which points to the unsubscription page of your
-website. You can use $cid$, $llid$ and $uid$. $cid$ will be replaced with the email ID, $llid$ with the
-launch list ID and $uid$ with the randomly generated contact ID. Example: `http://yourwebsite.com/unsubscribe.html?email_id=$cid$&launchlist_id=$llid$`
+website. You can include any of the following additional placeholders: $cid$, $llid$ and $uid$. 
 
-For the list of possible campaign related placeholders, see :doc:`../appendices/placeholders`.
+$cid$ will be replaced with the email ID, $llid$ with the launch list ID and $uid$ with the randomly generated contact ID. Example: `http://yourwebsite.com/unsubscribe.html?email_id=$cid$&launchlist_id=$llid$`
+
+For a complete list of campaign related placeholders, see :doc:`../appendices/placeholders`.
 
 Endpoint
 --------
@@ -38,8 +39,8 @@ Parameters
      - Comments
    * - launch_list_id
      - int
-     - ID on the basis of which contacts who clicked on the unsubscribe link can be identified.
-       In the case of on event emails, there is no availability limit for the launch_list_id. For batch emails, it lasts for 2 months.
+     - ID used to identify which contacts clicked the unsubscribe link.
+       When using batch emails, the data is available for 2 months only. In the case of on-event emails there is no limit for the launch_list_id data availability.
      -
    * - email_id
      - int
@@ -47,7 +48,7 @@ Parameters
      -
    * - uid
      - string
-     - Identifies a contact, a randomly generated string.
+     - Identifies a contact; is displayed as a randomly generated string.
      -
 
 Request Example
